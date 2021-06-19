@@ -19,4 +19,5 @@ Route::get('/', [PageController::class,'welcome'])->name(name:'welcome');
 
 Route::group(['middleware'=>['auth:sanctum', 'verified']],function(){
   Route::get('/dashboard',[PageController::class,'dashboard'])->name(name:'dashboard');
+  Route::get('/chat',[PageController::class,'chat'])->name(name:'chat');
 });

@@ -22,4 +22,12 @@ class PageController extends Controller
             'phpVersion' => PHP_VERSION,
         ]);
     }
+    public function chat(){
+        return Inertia::render('Chat', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+        ]);
+    }
 }
