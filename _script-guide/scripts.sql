@@ -1,0 +1,3 @@
+Create DATABASE chat_1 CHARACTER SET utf8 COLLATE utf8_general_ci;
+Create user adm@127.0.0.1 IDENTIFIED BY 'X4tCr3c15pe';
+GRANT ALL PRIVILEGES ON *. * to adm@127.0.0.1 WITH GRANT OPTION;
