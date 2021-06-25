@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Chat
+                Chat!
             </h2>
         </template>
 
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="w-full mb-3">
                                     <p class="inline-block p-2 rounded-md messageToMe" style="max-width:75%">
-                                        <strong>Carmine Brodnex: </strong> 
+                                        <strong>Jujuba Brodnex: </strong> 
                                         <span>
                                             Ajuda!
                                         </span>
@@ -97,6 +97,20 @@
         components: {
             AppLayout,
         },
+        data(){
+            console.log('passando pelo data()')
+            return {
+                users:[]
+            }
+        },
+        mounted(){
+            console.log('passando pelo mounted()')
+            console.log('chamando api/users')
+            axios.get('api/users').then(response=>{
+                console.log(response)
+            })
+            console.log('rota retornada')
+        }
     }
 </script>
 
@@ -104,13 +118,13 @@
 .messageFromMe{
     /*@apply(bg-indigo-300 bg-opacity-25);*/
     background-color:#e7ecfb;
-    background-opacity:25;
+/*    background-opacity:25;*/
     float:right;
 }
 .messageToMe{
     /*@apply( bg-gray-300 bg-opacity-25);*/
     background-color:#fbfbfb;
-    background-opacity:25;
+    /*background-opacity:25;*/
     float:left;
 }
 
