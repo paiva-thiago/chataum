@@ -12,18 +12,13 @@
                     <!-- Listagem de usuários aqui -->
                     <div class="w-3/12 bg-gray-200 bg-opacity-25 shadow-xl border-gray-200 overflow-y-auto">
                         <ul>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Monteiro Lobato<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Carmine Brodnex<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Guimarães Rosa<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Jaime José Manuel<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Graciliano Ramos<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Francisca Priscila<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Jorge Amado<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Manoela Natalina<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Ignacio Brandão<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Tristão Helder<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Sandra Herberto<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
-                            <li class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"><p class="flex items-center">Ismael Sidónio<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span></p></li>
+                            <li 
+                            v-for="user in users" :key="user.id"
+                            class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer">
+                                <p class="flex items-center">
+                                    {{user.name}}<span class="ml-2 w-2 h-2 bg-green-500 rounded-full"></span>
+                                </p>
+                            </li>                            
                         </ul>
                     </div>
                     <!-- Caixa das mensagens -->
@@ -107,7 +102,7 @@
             console.log('passando pelo mounted()')
             console.log('chamando api/users')
             axios.get('api/users').then(response=>{
-                console.log(response)
+                this.users = response.data.users
             })
             console.log('rota retornada')
         }

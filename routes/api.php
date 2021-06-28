@@ -19,8 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group([],function(){
-    Route::get('/users',[UserController::class,'index']);
+Route::group(['middleware'=>'auth:sanctum'],function(){
+    Route::get('/users',[UserController::class,'index'])->name('users.index');
 });
 
 ?>
