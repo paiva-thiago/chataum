@@ -15,6 +15,7 @@ class UserController extends Controller
         $userLogged = Auth::user();
 
         $users = User::where('id','!=',$userLogged->id)->get();
+
         return response()->json([
             'users' => $users
         ], Response::HTTP_OK);

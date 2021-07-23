@@ -18946,6 +18946,7 @@ __webpack_require__.r(__webpack_exports__);
     console.log('chamando api/users');
     axios.get('api/users').then(function (response) {
       _this.users = response.data.users;
+      console.log(_this.users);
     });
     console.log('rota retornada');
   }

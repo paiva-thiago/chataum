@@ -103,6 +103,7 @@
             console.log('chamando api/users')
             axios.get('api/users').then(response=>{
                 this.users = response.data.users
+                console.log(this.users)
             })
             console.log('rota retornada')
         }
